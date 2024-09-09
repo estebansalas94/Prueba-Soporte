@@ -1,23 +1,16 @@
-import './bootstrap';
-import '../css/app.css';
+import Vue from 'vue';
+import Vuex from 'vuex';
+import TaskList from './Components/TaskList.vue';
+import store from './store';
+import axios from 'axios';
 
-import { createApp, h } from 'vue';
-import { createInertiaApp } from '@inertiajs/vue3';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { ZiggyVue } from '../../vendor/tightenco/ziggy';
+Vue.use(Vuex);
+// Configuración global de Axios
+axios.defaults.baseURL = 'http://127.0.0.1:8000'; // Cambia esto a tu URL base si es necesario
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
-
-createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
-    setup({ el, App, props, plugin }) {
-        return createApp({ render: () => h(App, props) })
-            .use(plugin)
-            .use(ZiggyVue)
-            .mount(el);
-    },
-    progress: {
-        color: '#4B5563',
-    },
+const app = new Vue({
+    el: '#app',
+    store, // Agrega el store a la instancia de Vue
+    components: { TaskList },
 });
