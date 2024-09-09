@@ -1,3 +1,18 @@
+PRUEBA - SOPORTE 
+
+Lo primero realizado fue actualizar las versiones de entorno (laravel, php , vue ) para poderlas trabajar me tome el trabajo de actualizarlas a las versiones mas recientes como laravel 11 php 8.3 y vue 3 para poderlo trabajar ya que el proyecto de prueba tiene versiones bastante viejas 
+
+Al momento de realizar la inspeccion del codigo para encontrar los errores funcionales de la aplicacion encontre varios factores claves como estan listados acontinuacion:
+
+- creacion del servicio para listar los datos (fetchTasks en vue y el metodo index en el backend para enviar los datos por el json)
+- refactorizar metodo update y delete para que sean respuesta json y manejarlas con la api axios
+- se agrego el metodo completeTask para dar el estado de completado a las tareas cambiandolo a 1 como completado y ademas solo mostrando en la vista los incompletos
+- quede pendiente de colocar un boton para llamar las tareas completadas
+- quedo pendiente mostrar por nombre y no por id al usuario encargado de la tarea
+- ademas mensajes claros de acciones realizadas por el usuario como cuando agrega,elimina y actualiza
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
